@@ -2,7 +2,7 @@ apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
 
 def libName = 'kema'
-def libGroup = 'com.github.nitrico' + libName
+def libGroup = 'com.github.nitrico:' + libName
 def libSite = 'https://github.com/nitrico/' + libName
 def libGit = libSite + '.git'
 def libTracker = libSite + '/issues'
