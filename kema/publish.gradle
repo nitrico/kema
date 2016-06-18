@@ -10,7 +10,7 @@ def libDesc = 'Kotlin Extension Methods for Android'
 def libTags = ['android', 'kotlin', 'extension', 'methods', 'utils']
 
 group = libGroup
-version = '0.1.0'
+version = '0.1.1'
 
 Properties properties = new Properties()
 properties.load(project.rootProject.file('local.properties').newDataInputStream())

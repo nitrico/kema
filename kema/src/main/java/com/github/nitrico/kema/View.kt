@@ -25,6 +25,30 @@ fun View.show() { visibility = View.VISIBLE }
 fun View.hide() { visibility = View.GONE }
 fun View.showIfAndHideIfNot(condition: Boolean) = if (condition) show() else hide()
 
+fun View.setPaddingStart(paddingStart: Int) = ViewCompat.setPaddingRelative(this,
+        paddingStart,
+        paddingTop,
+        ViewCompat.getPaddingEnd(this),
+        paddingBottom)
+
+fun View.setPaddingTop(paddingTop: Int) = ViewCompat.setPaddingRelative(this,
+        ViewCompat.getPaddingStart(this),
+        paddingTop,
+        ViewCompat.getPaddingEnd(this),
+        paddingBottom)
+
+fun View.setPaddingEnd(paddingEnd: Int) = ViewCompat.setPaddingRelative(this,
+        ViewCompat.getPaddingStart(this),
+        paddingTop,
+        paddingEnd,
+        paddingBottom)
+
+fun View.setPaddingBottom(paddingBottom: Int) = ViewCompat.setPaddingRelative(this,
+        ViewCompat.getPaddingStart(this),
+        paddingTop,
+        ViewCompat.getPaddingEnd(this),
+        paddingBottom)
+
 fun View.elevate(elevation: Float) {
     if (Build.VERSION.SDK_INT >= 21) setElevation(elevation)
     else ViewCompat.setElevation(this, elevation)
