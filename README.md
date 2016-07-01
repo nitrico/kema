@@ -5,12 +5,12 @@ Kotlin Extension Methods for Android
 
 Properties for Context:
 ```kotlin
-hasNavigationBar
-isNavigationBarHorizontal
-navigationBarCanChangeItsPosition
-statusBarHeight
-navigationBarHeight
-navigationBarWidth
+hasNavigationBar // Boolean
+isNavigationBarHorizontal // Boolean
+navigationBarCanChangeItsPosition // Boolean
+statusBarHeight // Int
+navigationBarHeight // Int
+navigationBarWidth // Int
 ```
 Methods for View:
 ```kotlin
