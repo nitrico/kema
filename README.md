@@ -7,6 +7,7 @@ All included as properties for Context. The name of the property is the name of 
 ```kotlin
 // before
 getSystemService(Context.BLUETOOTH_SERVICE) as BluetoothManager
+
 // now
 bluetoothManager
 ```
