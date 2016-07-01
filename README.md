@@ -1,9 +1,10 @@
 # kema
 Kotlin Extension Methods for Android
 
-#### System Services
-
-|now|before|
-|---|---|
-|accesibilityManager|context.getSystemService(Context.ACCESSIBILITY_SERVICE) as AccesibilityManager|
-
+**System Services** (all included). Example (in a Context):
+```kotlin
+// before
+getSystemService(Context.BLUETOOTH_SERVICE) as BluetoothManager
+// now
+bluetoothManager
+```
