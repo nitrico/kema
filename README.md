@@ -16,20 +16,20 @@ Methods for `Activity`, `Fragment` and `android.support.v4.app.Fragment`:
 * argument(key)
 ```kotlin
 // before
-val arg = intent.extras.get(KEY_OF_ARGUMENT) as ArgumentType // for Activity
-val arg = arguments.get(KEY_OF_ARGUMENT) as ArgumentType // for Fragments
+val arg = intent.extras.get(KEY) as ArgumentType // for Activity
+val arg = arguments.get(KEY) as ArgumentType // for Fragments
 
 // now
-val arg: ArgumentType = argument(KEY_OF_ARGUMENT) // or val arg = argument<ArgumentType>(KEY_OF_ARGUMENT)
+val arg: ArgumentType = argument(KEY) // or val arg = argument<ArgumentType>(KEY)
 ```
 * lazyArgument(key)
 ```kotlin
 // before
-val arg: ArgumentType by lazy { intent.extras.get(KEY_OF_ARGUMENT) as ArgumentType } // for Activity
-val arg: ArgumentType by lazy { arguments.get(KEY_OF_ARGUMENT) as ArgumentType } // for Fragments
+val arg: ArgumentType by lazy { intent.extras.get(KEY) as ArgumentType } // for Activity
+val arg: ArgumentType by lazy { arguments.get(KEY) as ArgumentType } // for Fragments
 
 // now
-val arg: ArgumentType by lazyArgument(KEY_OF_ARGUMENT) // or val arg by lazyArgument<ArgumentType>(KEY_OF_ARGUMENT)
+val arg: ArgumentType by lazyArgument(KEY) // or val arg by lazyArgument<ArgumentType>(KEY)
 ```
 
 #### Color
