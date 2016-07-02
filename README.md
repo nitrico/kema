@@ -3,7 +3,7 @@ Kotlin Extension Methods for Android
 
 #### My favourite: dp to pixels conversion
 ```kotlin
-// before (I've seen far more complicated)
+// before (the simplest one, I've seen far more complicated)
 val eightDpInPixels = (8 * Resources.getSystem().displayMetrics.density + 0.5f).toInt()
 
 // now
