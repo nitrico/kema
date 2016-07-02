@@ -87,6 +87,9 @@ val v = if (condition) true else false
 // now (not so useful... but there it is)
 val v = (condition) % true / false
 ```
+|now|before|
+|---|---|
+|val v = (condition) % true / false|val v = if (condition) true else false|
 
 #### View
 
