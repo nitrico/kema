@@ -49,6 +49,45 @@ if (Build.VERSION.SDK_INT >= 21) {
 mDrawable.tint = mColor
 ```
 
+#### Menu
+
+Methods for `Menu`:
+* forEach { }
+* get operator for ids
+```kotlin
+// before
+val menuItem = menu.findItem(id)
+
+// now
+val menuItem = menu[id]
+```
+* tint(color)
+```kotlin
+// before
+for (i in 0..menu.size()-1) {
+    val icon = menu.getItem(i).icon
+    if (Build.VERSION.SDK_INT >= 21) icon.setTint(color)
+    else DrawableCompat.setTint(DrawableCompat.wrap(icon), color)
+}
+// now
+menu.tint(color)
+```
+
+
+Methods for `Activity`:
+* inflate(menuResId, menu)
+```kotlin
+// before
+override fun onCreateOptionsMenu(menu: Menu): Boolean {
+    menuInflater.inflate(R.menu.main, menu)
+    return true
+}
+
+// now
+override fun onCreateOptionsMenu(menu: Menu) = inflate(R.menu.main, menu)
+```
+
+
 #### System Bars
 
 Properties for `Context`:
