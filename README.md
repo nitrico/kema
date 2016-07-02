@@ -20,7 +20,7 @@ val arg = intent.extras.get(KEY) as ArgumentType // for Activity
 val arg = arguments.get(KEY) as ArgumentType // for Fragments
 
 // now
-val arg: ArgumentType = argument(KEY) // or val arg = argument<ArgumentType>(KEY)
+val arg = argument<ArgumentType>(KEY)
 ```
 * lazyArgument(key)
 ```kotlin
@@ -29,7 +29,7 @@ val arg: ArgumentType by lazy { intent.extras.get(KEY) as ArgumentType } // for 
 val arg: ArgumentType by lazy { arguments.get(KEY) as ArgumentType } // for Fragments
 
 // now
-val arg: ArgumentType by lazyArgument(KEY) // or val arg by lazyArgument<ArgumentType>(KEY)
+val arg by lazyArgument<ArgumentType>(KEY)
 ```
 
 #### Color
