@@ -89,7 +89,7 @@ val v = (condition) % true / false
 ```
 |now|before|
 |---|---|
-|val v = (condition) % true / false|val v = if (condition) true else false|
+|```kotlin val v = (condition) % true / false```|```kotlin val v = if (condition) true else false```|
 
 #### View
 
