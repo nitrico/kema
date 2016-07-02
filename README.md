@@ -1,6 +1,23 @@
 # kema
 Kotlin Extension Methods for Android
 
+#### Arguments
+
+Methods for Activity, Fragment and android.support.v4.app.Fragment:
+```kotlin
+argument(key: String)
+// usage
+val arg: TypeOfArgument = argument(KEY_OF_ARGUMENT)
+// or
+val arg = argument<TypeOfArgument>(KEY_OF_ARGUMENT)
+
+lazyArgument(key: String)
+// usage
+val arg: TypeArgument by lazyArgument(KEY_OF_ARGUMENT)
+// or
+val arg by lazyArgument<TypeOfArgument>(KEY_OF_ARGUMENT)
+```
+
 #### System Bars
 
 Properties for Context:
