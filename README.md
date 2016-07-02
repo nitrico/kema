@@ -3,15 +3,15 @@ Kotlin Extension Methods for Android
 
 #### Arguments
 
-Methods for Activity, Fragment and android.support.v4.app.Fragment:
-* argument(key: String)
+Methods for `Activity`, `Fragment` and `android.support.v4.app.Fragment`:
+* argument(key)
 ```kotlin
 // usage
 val arg: ArgumentType = argument(KEY_OF_ARGUMENT)
 // or
 val arg = argument<ArgumentType>(KEY_OF_ARGUMENT)
 ```
-* lazyArgument(key: String)
+* lazyArgument(key)
 ```kotlin
 // usage
 val arg: ArgumentType by lazyArgument(KEY_OF_ARGUMENT)
