@@ -3,7 +3,6 @@ Kotlin Extension Methods for Android
 
 ## dp to pixels conversion (my favourite)
 ```kotlin
-// usage
 val eightDpInPixels = 8.dp
 
 // before (the simplest one, I've seen far more complicated)
@@ -15,7 +14,6 @@ val eightDpInPixels = (8 * Resources.getSystem().displayMetrics.density + 0.5f).
 Methods for `Activity`, `Fragment` and `android.support.v4.app.Fragment`:
 * argument(key)
 ```kotlin
-// usage
 val arg = argument<ArgumentType>(KEY)
 
 // before
@@ -24,7 +22,6 @@ val arg = arguments.get(KEY) as ArgumentType // for Fragments
 ```
 * lazyArgument(key)
 ```kotlin
-// usage
 val arg by lazyArgument<ArgumentType>(KEY)
 
 // before
@@ -42,7 +39,6 @@ Properties for `Context`:
 Property for `String`:
 * asColor
 ```kotlin
-// usage
 val color = "#442288".asColor
 ```
 
@@ -51,7 +47,6 @@ val color = "#442288".asColor
 Property for `Drawable`
 * tint
 ```kotlin
-// usage
 mDrawable.tint = mColor
 
 // before
@@ -68,7 +63,6 @@ Methods for `Menu`:
 * forEach { }
 * get operator for ids
 ```kotlin
-// usage
 val menuItem = menu[id]
 
 // before
@@ -76,7 +70,6 @@ val menuItem = menu.findItem(id)
 ```
 * tint(color)
 ```kotlin
-// usage
 menu.tint(color)
 
 // before
@@ -90,7 +83,6 @@ for (i in 0..menu.size()-1) {
 Methods for `Activity`:
 * inflate(menuResId, menu)
 ```kotlin
-// usage
 override fun onCreateOptionsMenu(menu: Menu) = inflate(R.menu.main, menu)
 
 // before
@@ -121,7 +113,6 @@ setLightStatusBar()
 
 They are **all included** as properties for `Context`. The name of the property is the name of the returned class with the first letter lower-cased. Examples:
 ```kotlin
-// usage
 val lm = locationManager
 val js = jobScheduler
 
@@ -134,8 +125,7 @@ val js = getSystemService(Context.JOB_SCHEDULER_SERVICE) as JobScheduler
 ## Ternary operator
 
 ```kotlin
-// usage (not so useful, but there it is)
-val v = (condition) % true / false
+val v = (condition) % true / false  // not so useful, but there it is
 
 // before 
 val v = if (condition) true else false
@@ -166,7 +156,6 @@ Methods for `View`
 * Functions
   * inflate(layoutResId): View
 ```kotlin
-// usage
 val view = parent.inflate(layoutResId)
 
 // before
