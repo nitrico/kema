@@ -22,12 +22,12 @@ val arg by lazyArgument<ArgumentType>(KEY_OF_ARGUMENT)
 #### Color
 
 Properties for `Context`:
-.colorAccent
-.colorPrimary
-.colorPrimaryDark
+* colorAccent
+* colorPrimary
+* colorPrimaryDark
  
 Property for `String`:
-.asColor
+* asColor
 ```kotlin
 // usage
 val color = "#442288".asColor
@@ -36,7 +36,7 @@ val color = "#442288".asColor
 #### Drawable
 
 Property for `Drawable`
-tint
+* tint
 ```kotlin
 // before
 if (Build.VERSION.SDK_INT >= 21) {
