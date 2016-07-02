@@ -7,16 +7,16 @@ Methods for Activity, Fragment and android.support.v4.app.Fragment:
 * argument(key: String)
 ```kotlin
 // usage
-val arg: TypeOfArgument = argument(KEY_OF_ARGUMENT)
+val arg: ArgumentType = argument(KEY_OF_ARGUMENT)
 // or
-val arg = argument<TypeOfArgument>(KEY_OF_ARGUMENT)
+val arg = argument<ArgumentType>(KEY_OF_ARGUMENT)
 ```
 * lazyArgument(key: String)
 ```kotlin
 // usage
-val arg: TypeArgument by lazyArgument(KEY_OF_ARGUMENT)
+val arg: ArgumentType by lazyArgument(KEY_OF_ARGUMENT)
 // or
-val arg by lazyArgument<TypeOfArgument>(KEY_OF_ARGUMENT)
+val arg by lazyArgument<ArgumentType>(KEY_OF_ARGUMENT)
 ```
 
 #### System Bars
