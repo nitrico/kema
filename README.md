@@ -77,3 +77,13 @@ val js = getSystemService(Context.JOB_SCHEDULER_SERVICE) as JobScheduler
 val lm = locationManager
 val js = jobScheduler
 ```
+
+#### Ternary operator
+
+```kotlin
+// before 
+val v = if (condition) true else false
+
+// now (not so useful... but there it is)
+val v = (condition) % true / false
+```
