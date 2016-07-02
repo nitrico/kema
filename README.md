@@ -87,3 +87,22 @@ val v = if (condition) true else false
 // now (not so useful... but there it is)
 val v = (condition) % true / false
 ```
+
+#### View
+
+Methods for `View`
+* show()
+* hide()
+* showIf(condition)
+* setPaddingStart(paddingStart)
+* setPaddingEnd(paddingEnd)
+* setPaddingTop(paddingTop)
+* setPaddingBottom(paddingBottom)
+* setPaddingDp(left, top, right, bottom)
+* setMargins(left, top, right, bottom)
+* setMarginsDp(left, top, right,)
+* elevate(elevation)
+* isAttachedToWindow()
+* isInBounds(anotherView)
+* onClick { }
+* onLongClick { }
