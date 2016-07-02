@@ -1,6 +1,15 @@
 # kema
 Kotlin Extension Methods for Android
 
+#### My favourite: dp to pixels conversion
+```kotlin
+// before (I've seen far more complicated)
+val eightDpInPixels = (8 * Resources.getSystem().displayMetrics.density + 0.5f).toInt()
+
+// now
+val eightDpInPixels = 8.dp
+```
+
 #### Arguments
 
 Methods for `Activity`, `Fragment` and `android.support.v4.app.Fragment`:
@@ -69,6 +78,7 @@ for (i in 0..menu.size()-1) {
     if (Build.VERSION.SDK_INT >= 21) icon.setTint(color)
     else DrawableCompat.setTint(DrawableCompat.wrap(icon), color)
 }
+
 // now
 menu.tint(color)
 ```
