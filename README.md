@@ -162,12 +162,12 @@ Methods for `View`
 
 #### ViewGroup
 * Properties
-  * children: List<View>
+  * children: List<View> 
 * Functions
-  * inflate(layoutResId)
+  * inflate(layoutResId): View
 ```kotlin
 // before
-val view = LayoutInflater.from(parent.context).inflate(layoutResId, parent, false);
+val view = LayoutInflater.from(parent.context).inflate(parent, layoutResId, false);
 
 // now
 val view = parent.inflate(layoutResId)
