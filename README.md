@@ -19,6 +19,21 @@ val arg: ArgumentType by lazyArgument(KEY_OF_ARGUMENT)
 val arg by lazyArgument<ArgumentType>(KEY_OF_ARGUMENT)
 ```
 
+#### Color
+
+Properties for `Context`:
+* colorAccent
+* colorPrimary
+* colorPrimaryDark
+ 
+Property for `String`:
+* asColor
+```kotlin
+// usage
+val color = "#442288".asColor
+```
+
+
 #### System Bars
 
 Properties for `Context`:
