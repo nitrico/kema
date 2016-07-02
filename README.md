@@ -1,7 +1,7 @@
 # kema
 Kotlin Extension Methods for Android
 
-#### My favourite: dp to pixels conversion
+#### dp to pixels conversion (my favourite)
 ```kotlin
 // before (the simplest one, I've seen far more complicated)
 val eightDpInPixels = (8 * Resources.getSystem().displayMetrics.density + 0.5f).toInt()
