@@ -33,6 +33,21 @@ Property for `String`:
 val color = "#442288".asColor
 ```
 
+#### Drawable
+
+Property for `Drawable`
+* tint
+```kotlin
+// before
+if (Build.VERSION.SDK_INT >= 21) {
+    mDrawable.setTint(value)
+} else {
+    DrawableCompat.setTint(DrawableCompat.wrap(mDrawable), mColor)
+}
+
+// now
+mDrawable.tint = mColor
+```
 
 #### System Bars
 
