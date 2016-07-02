@@ -159,3 +159,8 @@ Methods for `View`
 * isInBounds(anotherView)
 * onClick { }
 * onLongClick { }
+
+#### ViewGroup
+* Properties
+* * children: List<View>
+* Functions
