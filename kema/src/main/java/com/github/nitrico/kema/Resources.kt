@@ -2,10 +2,18 @@ package com.github.nitrico.kema
 
 import android.content.Context
 import android.content.res.ColorStateList
+import android.content.res.Configuration
 import android.content.res.Resources
 import android.graphics.drawable.Drawable
 import android.support.annotation.*
 import android.support.v4.content.ContextCompat
+import android.util.DisplayMetrics
+
+val config: Configuration = Resources.getSystem().configuration
+val displayMetrics: DisplayMetrics = Resources.getSystem().displayMetrics
+
+fun Context.isPortrait() = resources.configuration.orientation != Configuration.ORIENTATION_LANDSCAPE
+fun Context.isLandscape() = resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE
 
 fun Context.boolRes(@BoolRes id: Int): Boolean = resources.getBoolean(id)
 fun Context.dimenRes(@DimenRes id: Int): Float = resources.getDimension(id)
@@ -13,7 +21,7 @@ fun Context.stringRes(@StringRes id: Int): String = getString(id)
 
 @ColorInt fun Context.colorRes(@ColorRes id: Int) = ContextCompat.getColor(this, id)
 fun Context.colorStateListRes(@ColorRes id: Int) = ContextCompat.getColor(this, id)
-fun Context.drawableRes(@DrawableRes id: Int) = ContextCompat.getDrawable(this, id)
+fun Context.drawableRes(@DrawableRes id: Int): Drawable = ContextCompat.getDrawable(this, id)
 
 fun Context.colorStateListsFromArrayRes(@ArrayRes id: Int): List<ColorStateList> {
     val array = resources.obtainTypedArray(id)

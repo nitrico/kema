@@ -26,7 +26,7 @@ fun Activity.setFullScreenLayout(@ColorInt statusBarColor: Int = Color.parseColo
 }
 
 fun Activity.setTaskDescription(@DrawableRes iconRes: Int? = null,
-                                @ColorInt color: Int = primaryColor,
+                                @ColorInt color: Int = colorPrimary,
                                 title: String? = null) {
     if (Build.VERSION.SDK_INT >= 21) {
         if (iconRes != null) {

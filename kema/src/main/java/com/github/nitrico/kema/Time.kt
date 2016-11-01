@@ -24,26 +24,32 @@ fun Long.toTimeAgo(): String {
     }
 }
 
-fun Long.toTwoDigitsString() = String.format("%02d", this)
+val Int.asTwoDigits: String get() = toLong().asTwoDigits
+
+val Long.asTwoDigits: String get() = String.format("%02d", this)
+
+fun Int.toTimeString(withUnits: Boolean = false) = toLong().toTimeString(withUnits)
 
 fun Long.toTimeString(withUnits: Boolean = false): String {
     val MINUTE: Long = 60
     val HOUR: Long = 3600
-    if (this < MINUTE) {
-        if (withUnits) return "${this.toTwoDigitsString()}s"
-        else return "${this.toTwoDigitsString()}"
-    }
-    else if (this < HOUR) {
-        val minutes: Long = this / MINUTE
-        val seconds: Long = this - (minutes * MINUTE)
-        if (withUnits) return "${minutes.toTwoDigitsString()}m:${seconds.toTwoDigitsString()}s"
-        else return "${minutes.toTwoDigitsString()}:${seconds.toTwoDigitsString()}"
-    }
-    else {
-        val hours: Long = this / HOUR
-        val minutes: Long = (this - hours*HOUR) / MINUTE
-        val seconds: Long = this - hours*HOUR - minutes*MINUTE
-        if (withUnits) return "${hours}h:${minutes.toTwoDigitsString()}m:${seconds.toTwoDigitsString()}s"
-        else return "$hours:${minutes.toTwoDigitsString()}:${seconds.toTwoDigitsString()}"
+    return when {
+        this < MINUTE -> {
+            if (withUnits) "${asTwoDigits}s"
+            else "$asTwoDigits"
+        }
+        this < HOUR -> {
+            val minutes: Long = this / MINUTE
+            val seconds: Long = this - minutes*MINUTE
+            if (withUnits) "${minutes.asTwoDigits}m:${seconds.asTwoDigits}s"
+            else "${minutes.asTwoDigits}:${seconds.asTwoDigits}"
+        }
+        else -> {
+            val hours: Long = this / HOUR
+            val minutes: Long = (this - hours*HOUR) / MINUTE
+            val seconds: Long = this - hours*HOUR - minutes*MINUTE
+            if (withUnits) "${hours}h:${minutes.asTwoDigits}m:${seconds.asTwoDigits}s"
+            else "$hours:${minutes.asTwoDigits}:${seconds.asTwoDigits}"
+        }
     }
 }

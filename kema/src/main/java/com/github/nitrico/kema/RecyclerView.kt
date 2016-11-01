@@ -6,12 +6,12 @@ import android.support.v4.widget.EdgeEffectCompat
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.RecyclerView
 
-fun RecyclerView.smoothScrollTo(position: Int, callback: () -> Unit) {
+fun RecyclerView.smoothScrollTo(position: Int, callback: (() -> Unit)? = null) {
     addOnScrollListener(object : RecyclerView.OnScrollListener() {
         override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
             super.onScrollStateChanged(recyclerView, newState)
             if (newState == RecyclerView.SCROLL_STATE_IDLE) {
-                callback()
+                callback?.invoke()
                 removeOnScrollListener(this)
             }
         }
@@ -19,7 +19,7 @@ fun RecyclerView.smoothScrollTo(position: Int, callback: () -> Unit) {
     smoothScrollToPosition(position)
 }
 
-fun GridLayoutManager.setSpanSize(func: (position: Int) -> Int) {
+fun GridLayoutManager.setSpanSize(func: (Int) -> Int) {
     spanSizeLookup = object: GridLayoutManager.SpanSizeLookup() {
         override fun getSpanSize(position: Int) = func(position)
     }

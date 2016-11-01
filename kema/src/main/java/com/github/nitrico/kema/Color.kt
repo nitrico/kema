@@ -3,14 +3,15 @@ package com.github.nitrico.kema
 import android.content.Context
 import android.graphics.Color
 import android.support.annotation.ColorInt
-import android.util.TypedValue
 
-val Context.primaryColor: Int
-    @ColorInt get() {
-        val typedValue = TypedValue()
-        theme.resolveAttribute(R.attr.colorPrimary, typedValue, true)
-        return typedValue.data
-    }
+val Context.colorAccent: Int
+    @ColorInt get() = resolve(R.attr.colorAccent)
+
+val Context.colorPrimary: Int
+    @ColorInt get() = resolve(R.attr.colorPrimary)
+
+val Context.colorPrimaryDark: Int
+    @ColorInt get() = resolve(R.attr.colorPrimaryDark)
 
 val String.asColor: Int @ColorInt get() = Color.parseColor(this)
 

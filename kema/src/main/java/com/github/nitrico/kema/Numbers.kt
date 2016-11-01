@@ -1,19 +1,13 @@
 package com.github.nitrico.kema
 
-fun constrain(min: Float, max: Float, v: Float): Float = Math.max(min, Math.min(max, v))
+fun Float.constrain(min: Float, max: Float): Float = Math.max(min, Math.min(max, this))
 
-fun Double.format(decimals: Int): String = java.lang.String.format("%.${decimals}f", this)
-fun Float.format(decimals: Int): String = java.lang.String.format("%.${decimals}f", this)
+fun Double.withDecimals(decimals: Int) = String.format("%.${decimals}f", this)
+fun Float.withDecimals(decimals: Int) = String.format("%.${decimals}f", this)
 
-fun Float.toDistanceString(): String {
-    val ms = this.toInt()
-    if (ms < 2000) return "" +ms +" m"
-    else if (ms < 10000) {
-        val kms: Float = ms / 1000f
-        return "" +kms.format(1) +" Km"
+val Float.asDistance: String
+    get() = when {
+        this < 2000 -> "${this.toInt()} m"
+        this < 10000 -> "${(this / 1000f).withDecimals(1)} Km"
+        else -> "${(this / 1000f).toInt()} Km"
     }
-    else {
-        val kms = ms / 1000
-        return "" +kms +" Km"
-    }
-}

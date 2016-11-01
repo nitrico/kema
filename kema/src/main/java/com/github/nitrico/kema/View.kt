@@ -16,14 +16,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.ViewTreeObserver
 
-val Int.dp: Int get() = (this * Resources.getSystem().displayMetrics.density + 0.5).toInt()
-
 val View.res: Resources get() = resources
 val View.ctx: Context get() = context
 
 fun View.show() { visibility = View.VISIBLE }
 fun View.hide() { visibility = View.GONE }
-fun View.showIfAndHideIfNot(condition: Boolean) = if (condition) show() else hide()
+
+fun View.showIf(condition: Boolean) = if (condition) show() else hide()
 
 fun View.setPaddingStart(paddingStart: Int) = ViewCompat.setPaddingRelative(this,
         paddingStart,
@@ -53,6 +52,7 @@ fun View.elevate(elevation: Float) {
     if (Build.VERSION.SDK_INT >= 21) setElevation(elevation)
     else ViewCompat.setElevation(this, elevation)
 }
+
 fun View.elevate(elevation: Int) = elevate(elevation.toFloat())
 
 fun View.isAttachedToWindow(): Boolean {
@@ -60,13 +60,21 @@ fun View.isAttachedToWindow(): Boolean {
     else return ViewCompat.isAttachedToWindow(this)
 }
 
-fun View.isViewInBounds(container: View): Boolean {
+fun View.isInBounds(container: View): Boolean {
     val containerBounds = Rect()
     container.getHitRect(containerBounds)
     return getLocalVisibleRect(containerBounds)
 }
 
-inline fun <T : View> T.afterMeasured(crossinline func: T.() -> Unit) {
+inline fun <T : View> T.onClick(crossinline func: T.() -> Unit) {
+    setOnClickListener { func() }
+}
+
+inline fun <T : View> T.onLongClick(crossinline func: T.() -> Unit) {
+    setOnLongClickListener { func(); true }
+}
+
+inline fun <T : View> T.onGlobalLayout(crossinline func: T.() -> Unit) {
     viewTreeObserver.addOnGlobalLayoutListener(object: ViewTreeObserver.OnGlobalLayoutListener {
         override fun onGlobalLayout() {
             if (measuredWidth > 0 && measuredHeight > 0) {
@@ -85,10 +93,6 @@ inline fun <T : View> T.onPreDraw(crossinline func: T.() -> Unit) {
             return true
         }
     })
-}
-
-fun ViewGroup.inflate(@LayoutRes layoutRes: Int, attachToRoot: Boolean = false): View {
-    return LayoutInflater.from(context).inflate(layoutRes, this, attachToRoot)
 }
 
 fun View.setHeight(height: Int) {
@@ -112,9 +116,10 @@ fun View.setMargins(l: Int, t: Int, r: Int, b: Int) {
 }
 
 fun View.setMarginsDp(l: Int, t: Int, r: Int, b: Int) = setMargins(l.dp, t.dp, r.dp, b.dp)
+
 fun View.setPaddingDp(l: Int, t: Int, r: Int, b: Int) = setPadding(l.dp, t.dp, r.dp, b.dp)
 
-fun View.changeBackgroundColor(@ColorInt newColor: Int, time: Int = 300) {
+fun View.changeBackgroundColor(@ColorInt newColor: Int, duration: Int = 300) {
     val oldBackground = background
     val color = ColorDrawable(newColor)
     val ld = LayerDrawable(arrayOf<Drawable>(color))
@@ -122,6 +127,13 @@ fun View.changeBackgroundColor(@ColorInt newColor: Int, time: Int = 300) {
     else {
         val td = TransitionDrawable(arrayOf(oldBackground, ld))
         background = td
-        td.startTransition(time)
+        td.startTransition(duration)
     }
+}
+
+val ViewGroup.children: List<View>
+    get() = (0..childCount-1).map { getChildAt(it) }
+
+fun ViewGroup.inflate(@LayoutRes layoutRes: Int, attachToRoot: Boolean = false): View {
+    return LayoutInflater.from(context).inflate(layoutRes, this, attachToRoot)
 }

@@ -31,7 +31,7 @@ fun Snackbar.action(action: String, @ColorInt color: Int? = null, listener: (Vie
 
 operator fun TabLayout.get(position: Int): TabLayout.Tab = getTabAt(position)!!
 
-fun TabLayout.forEach(func: (TabLayout.Tab) -> Unit) {
+inline fun TabLayout.forEach(func: (TabLayout.Tab) -> Unit) {
     for (i in 0..tabCount-1) func(get(i))
 }
 
@@ -62,8 +62,6 @@ fun TabLayout.setIcons(icons: TypedArray) {
     tint()
 }
 
-fun TabLayout.getTabViewAt(position: Int): View {
-    return (getChildAt(0) as ViewGroup).getChildAt(position)
-}
+fun TabLayout.getTabViewAt(position: Int) = (getChildAt(0) as ViewGroup).getChildAt(position)
 
 // endregion TabLayout

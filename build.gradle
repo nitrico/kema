@@ -1,21 +1,21 @@
 buildscript {
     ext {
-        versionSdkMin = 16
-        versionSdkTarget = 24
-        versionTools = '24.0.0'
-        versionSupport = '24.0.0'
-        versionKotlin = '1.0.2-1'
+        vSdkMin = 15
+        vSdkTarget = 24
+        vBuildTools = '25.0.0'
+        vGradlePlugin = '2.2.2'
+        vKotlin = '1.0.4'
+        vSupport = '25.0.0'
     }
     repositories {
         jcenter()
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.1.2'
-        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.6'
-        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.3'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$versionKotlin"
-        classpath "org.jetbrains.kotlin:kotlin-android-extensions:$versionKotlin"
+        classpath "com.android.tools.build:gradle:$vGradlePlugin"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$vKotlin"
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.2'
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5'
     }
 }
 
